@@ -31,7 +31,7 @@ app.use(bodyParser.urlencoded({extends: false}))
 
 async function start() {
     try {
-        await mongoose.connect("mongodb+srv://yuratab:X3eek27q9Ms$v@F@cluster0.r9zna.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {
+        await mongoose.connect("mongodb+srv://*****************cluster0.r9zna.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             useFindAndModify: false
