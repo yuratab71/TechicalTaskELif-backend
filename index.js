@@ -36,13 +36,13 @@ async function start() {
             useUnifiedTopology: true,
             useFindAndModify: false
         });
-        ///>>>>>>>>>>>>DELETE
+
         app.delete("/:id&:date", (req, res) => {
             console.log("DELETE")
             try {
                 Finance.findOneAndRemove({ id: req.params.id, date: req.params.date}, (err, doc) => {
                     if (err || !doc) {
-					res.status(404).send({statusCode: 500});
+			res.status(404).send({statusCode: 500});
                     } else {
                         res.status(204).send("Success");
                     }
@@ -52,7 +52,7 @@ async function start() {
                 res.status(500).send("Error");
             }
         })
-        ///>>>>>>>>>>>UPDATE
+
         app.put("/:id&:date", (req, res) => {
             console.log("PUT")
             try {
@@ -67,7 +67,7 @@ async function start() {
                 res.status(500).send({statusCode: 500});
             }
         })
-        ///>>>>>>>>>>>>GET
+
         app.get("/:id&:date", (req, res) => {
             console.log("GET");
             try {
@@ -90,9 +90,9 @@ async function start() {
                 Finance.find({id: req.params.id, month: req.params.month}, (err, docs) => {
                     console.log(docs);
                     if (err || !docs) {
-						res.status(404).send();
+			res.status(404).send();
                     } else {
-						res.status(200).send(docs);
+			res.status(200).send(docs);
                     } 
                 })
             } catch  (err) {
@@ -100,8 +100,6 @@ async function start() {
             }
         })
         
-
-        ///>>>>>>>>>>>>>>>>>>>>CREATE
         app.post("/finance/create/:id", async (req, res) => {
             console.log("POST")
             try {
@@ -147,7 +145,7 @@ async function start() {
                 res.status(500).send();
             }        
         })
-        /////////>>>>>>>>>>>>>>>>>>LOGIN
+	    
         app.post("/user/login", async (req, res) => {     
             console.log("POST")
             const {name, password} = req.body;
@@ -163,7 +161,7 @@ async function start() {
                 }       
             })
         })
-        /////////////////////////////////////////////////////////////////////////////////////////
+ 
         app.listen(PORT, () => {
             console.log("Server has been started...")
         })
